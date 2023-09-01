@@ -1,0 +1,9 @@
+name: GCHatchery
+version: '${project.version}'
+main: mmt007.plugins.gchatchery.GCHatchery
+api-version: '1.20'
+commands:
+  hatchery:
+    aliases:
+      - gch
+    description: 'Hatchery Commands'
