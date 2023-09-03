@@ -30,8 +30,6 @@ public class RecipeMngr {
     //Returns Recipe From {recipes} Variable Not Base On Item Amount
     //(I Should Make This Ignore Item Position On GUI)
     public static Recipe getRecipe(Map<Integer,ItemStack> input) {
-        Recipe finalRecipe = Recipe.getEmptyRecipe();
-
         ArrayList<ItemStack> input1 = new ArrayList<>(List.copyOf(input.values()));
         ArrayList<ItemStack> input2 = new ArrayList<>();
 
@@ -51,7 +49,7 @@ public class RecipeMngr {
             }
         }
 
-        return finalRecipe;
+        return Recipe.getEmptyRecipe();
     }
 
     //Gets Recipe By Name from {recipe} Variable

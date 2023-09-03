@@ -2,9 +2,10 @@ package mmt007.plugins.gchatchery.RecipeMngr.Models;
 
 import org.bukkit.inventory.ItemStack;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Recipe {
+public class Recipe implements Serializable {
     private String Name;
     private HashMap<Integer,ItemStack> Input;
     private HashMap<Integer,ItemStack> Output;
@@ -16,6 +17,7 @@ public class Recipe {
         Output = output;
         Time = time;
     }
+
 
     public String getName() {return Name;}
     public void setName(String name) {Name = name;}
@@ -43,14 +45,4 @@ public class Recipe {
         if(!Recipe.class.equals(o.getClass())){return false;}
         return recipe.getName().equalsIgnoreCase(this.Name);
     }
-
-//    public static Map<String,Object> getRecipesMap(ArrayList<Recipe> recipes){
-//        Map<String,Object> map = new HashMap<>();
-//
-//        for(Recipe recipe : recipes){
-//            map.put(recipe.getName(),recipe);
-//        }
-//
-//        return  map;
-//    }
 }

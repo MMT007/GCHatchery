@@ -27,9 +27,6 @@ public class addRecipeMenu extends Menu {
     HashMap<Integer,ItemStack> inputs = new HashMap<>();
     HashMap<Integer,ItemStack> outputs = new HashMap<>();
     double makingTime = 5.0d;
-    ArrayList<ItemStack> items = MenuCreationUtil.createBackGround(
-            getSize(), Material.BLACK_STAINED_GLASS_PANE);
-
     public addRecipeMenu(PlayerMenuUtility playerMenuUtility) {
         super(playerMenuUtility);
     }
@@ -59,14 +56,13 @@ public class addRecipeMenu extends Menu {
                     inventory.setItem(index,MenuCreationUtil.createItem(
                         "§r§7Fish Slot",Material.IRON_BARS, new String[]{}
                     ));
+
                     inputs.remove(index);
-                    items.set(index,playerHand);
 
                     return;
                 }
 
                 //Removes GUI Item and Adds The Item To Lists
-                items.set(index,playerHand);
                 inputs.put(index,playerHand);
                 e.setCurrentItem(playerHand);
             }
@@ -83,13 +79,11 @@ public class addRecipeMenu extends Menu {
                         "§rOutput Slot",Material.WHITE_STAINED_GLASS_PANE, new String[]{}
                     ));
                     outputs.remove(index);
-                    items.set(index,playerHand);
 
                     return;
                 }
 
                 //Removes GUI Item And Adds To Lists.
-                items.set(index,playerHand);
                 outputs.put(index,playerHand);
                 inventory.setItem(index,playerHand);
             }
@@ -155,6 +149,9 @@ public class addRecipeMenu extends Menu {
     //Sets Default GUI Item
     @Override
     public void setMenuItems() {
+        ArrayList<ItemStack> items = MenuCreationUtil.createBackGround(
+                getSize(), Material.BLACK_STAINED_GLASS_PANE);
+
 
         for(int i : emptyPlaceAbleSlots){
             items.set(i, MenuCreationUtil.createItem(
